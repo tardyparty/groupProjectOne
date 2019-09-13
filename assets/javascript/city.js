@@ -1,3 +1,5 @@
+
+// array of objects representing each cities data
 var cities = [
     {
         name: "New York City",
