@@ -1,8 +1,4 @@
 
-// array for testing funcs
-var answers = ["history", "culture", "architecture"];
-
-
 // compares users answers to city tags and scores city by num matching tags
 function score(){
     for (var i=0; i < answers.length; i++){
@@ -89,7 +85,7 @@ var quiz = [
 
 var currentQuestion = 0;
 var questions = $("#questions");
-var answersArr = []
+var answers = []
 
 //Load Question
 
@@ -119,10 +115,10 @@ function loadChoices(choices) {
     $("#button").on("click", function() {
 
         $.each($("input[value]:checked"), function() {
-            answersArr.push($(this).val());
+            answers.push($(this).val());
 
             nextQuestion();
-            console.log(answersArr)
+            console.log(answers)
         })
     })
     
@@ -152,6 +148,5 @@ $("#start").click(function() {
 //End Quiz
 
 function quizEnd() {
-    $("#questions").html("Please wait while we work our magic!");
-    $("#choices").remove();
+   $("#questions").html(score);
 }
