@@ -1,15 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>Vacation Decider</title>
+    </head>
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- JQuery Links -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <p>Site Under Construciton</p>
-    <script src="assets/javascript/app.js"></script>
-    <script src="assets/javascript/city.js"></script>
-    <script src="assets/javascript/api.js"></script>
+    <div class="container">
+        <div class="row banner">
+            <div class="col-md-12">
+    <div><img src="assets/photo1.jpg" alt="photo1"></div>
+    <div class="logo">Vacation Roulette</div>
+</div>
+    </div>
+
+<div class="intro col-md-12">
+    Not sure where your next vacation should be?  Just answer a few questions and we'll pick the best options for you!
+</div>
+    
+
+<div class="quiz">
+    <div class="row">
+        <div class="col-md-12" id="start">Start Quiz</div>
+    </div>  
+    <div class="row">
+        <div class="col-md-12" id="questions"></div>
+    </div> 
+    <div class="row">
+        <form>
+        <div class="col-md-12" id="choices"></div>
+        </form>
+    </div>
+</div>
+</div>
+
+<script src="assets/javascript/app.js"></script>
 </body>
 </html>
