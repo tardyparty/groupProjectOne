@@ -4,7 +4,8 @@ var quiz = [
 
     {
         question: "What type of scenery do you enjoy?",
-        choices: ["Beach", "Mountains", "Urban", "Country", "Small Town"]
+        choices: ["Beach", "Mountains", "Urban", "Country", "Small Town"],
+        image: "https://blog1.fkimg.com/wp-content/uploads/2017/07/Sevierville-Tennessee-Honeymoon-Destinations.jpg"
     },
 
     {
@@ -50,7 +51,6 @@ function loadQuestion() {
     var question = quiz[currentQuestion].question;
     $("#questions").html(question);
     loadChoices();
-    console.log(question)
 }
 
 //Load Choices
@@ -99,11 +99,9 @@ function nextQuestion() {
 
 $("#start").click(function() {
     $("#start").remove();
+    $(".intro").remove();
     loadQuestion();
 });
-
-console.log(quiz[currentQuestion].choices[0])
-console.log(quiz[currentQuestion].choices[1])
 
 //End Quiz
 
@@ -111,4 +109,3 @@ function quizEnd() {
     $("#questions").html("Please wait while we work our magic!");
     $("#choices").remove();
 }
-
