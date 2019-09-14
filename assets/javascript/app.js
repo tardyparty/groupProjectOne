@@ -1,5 +1,11 @@
+//Global Variables
 
-<<<<<<< HEAD
+
+var currentQuestion = 0;
+var questions = $("#questions");
+var answers = [];
+
+
 // compares users answers to city tags and scores city by num matching tags
 function score(){
     for (var i=0; i < answers.length; i++){
@@ -33,16 +39,6 @@ function sort(cities, score) {
 }
 
 
-
-// testing
-score();
-sort(cities, "score");
-
-for (i=0; i < cities.length; i++) {
-    console.log(cities[i]);
-}
-=======
->>>>>>> cc0c660ce9ee068290171dd6f3bbc596401d0033
 //Questions Array
 
 var quiz = [
@@ -84,15 +80,7 @@ var quiz = [
     }
 ]
 
-//Global Variables
 
-var currentQuestion = 0;
-var questions = $("#questions");
-<<<<<<< HEAD
-var answers = []
-=======
-var answers = [];
->>>>>>> cc0c660ce9ee068290171dd6f3bbc596401d0033
 
 //Load Question
 
@@ -110,12 +98,12 @@ function loadChoices(choices) {
     
     $("#choices").html(
         $("<div class='checkbox' id='choice1'><label><input type='checkbox' value=" + choices[0] + "> " + choices[0] + "</label>").append(
-        $("<div class='checkbox'><label><input type='checkbox' value=" + choices[1] + "> " + choices[1] + "</label>"),
-        $("<div class='checkbox'><label><input type='checkbox' value=" + choices[2] + "> " + choices[2] + "</label>"),
-        $("<div class='checkbox'><label><input type='checkbox' value=" + choices[3] + "> " + choices[3] + "</label>"),
-        $("<div class='checkbox'><label><input type='checkbox' value=" + choices[4] + "> " + choices[4] + "</label>"),
-        $("<button type='button' class='btn btn-primary' id='button'> " + "Next Question" + "</button>")
-    ))
+            $("<div class='checkbox'><label><input type='checkbox' value=" + choices[1] + "> " + choices[1] + "</label>"),
+            $("<div class='checkbox'><label><input type='checkbox' value=" + choices[2] + "> " + choices[2] + "</label>"),
+            $("<div class='checkbox'><label><input type='checkbox' value=" + choices[3] + "> " + choices[3] + "</label>"),
+            $("<div class='checkbox'><label><input type='checkbox' value=" + choices[4] + "> " + choices[4] + "</label>"),
+            $("<button type='button' class='btn btn-primary' id='button'> " + "Next Question" + "</button>"),
+        ));
 
     //Button Click
 
@@ -125,7 +113,8 @@ function loadChoices(choices) {
             answers.push($(this).val());
 
             nextQuestion();
-            console.log(answers)
+            console.log(answers);
+
         })
     })
     
@@ -155,18 +144,20 @@ $("#start").click(function() {
 //End Quiz
 
 function quizEnd() {
-<<<<<<< HEAD
-   $("#questions").html(score);
-=======
+    console.log("quizEnd() called");
+
+//    $("#questions").html(score);
+
     $("#questions").html("Please wait while we work our magic!");
     $("#choices").remove();
     score();
     sort(cities, "score");
+
+    // testing
     for (i=0; i < cities.length; i++) {
         console.log(cities[i]);
     }
 }
-
 
 
 
@@ -179,7 +170,13 @@ function score(){
             }
         }
     }
->>>>>>> cc0c660ce9ee068290171dd6f3bbc596401d0033
+}
+
+
+
+    for (i=0; i < cities.length; i++) {
+        console.log(cities[i]);
+    }
 }
 
 
@@ -199,13 +196,6 @@ function sort(cities, score) {
             }
         }
     }
-
     while (swapped);
 }
-
-
-
-// testing
-
-
 
