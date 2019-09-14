@@ -1,49 +1,9 @@
+//Global Variables
 
-// array for testing funcs
-var answers = ["history", "culture", "architecture"];
+var currentQuestion = 0;
+var questions = $("#questions");
+var answers = [];
 
-
-// compares users answers to city tags and scores city by num matching tags
-function score(){
-    for (var i=0; i < answers.length; i++){
-        for (var x=0; x < cities.length; x++){
-            if (cities[x].tags.indexOf(answers[i])){
-                cities[x].score++;
-            }
-        }
-    }
-}
-
-
-// bubble sort to rank cities by score
-function sort(cities, score) {
-
-    var swapped;
-
-    do {
-        swapped = false;
-        for (var i=0; i < cities.length-1; i++){
-            if (cities[i][score] < cities[i + 1][score]) {
-                var temp = cities[i];
-                cities[i] = cities[i + 1];
-                cities[i + 1] = temp;
-                swapped = true;
-            }
-        }
-    }
-
-    while (swapped);
-}
-
-
-
-// testing
-score();
-sort(cities, "score");
-
-for (i=0; i < cities.length; i++) {
-    console.log(cities[i]);
-}
 //Questions Array
 
 var quiz = [
@@ -85,11 +45,6 @@ var quiz = [
     }
 ]
 
-//Global Variables
-
-var currentQuestion = 0;
-var questions = $("#questions");
-var answersArr = []
 
 //Load Question
 
@@ -107,22 +62,22 @@ function loadChoices(choices) {
     
     $("#choices").html(
         $("<div class='checkbox' id='choice1'><label><input type='checkbox' value=" + choices[0] + "> " + choices[0] + "</label>").append(
-        $("<div class='checkbox'><label><input type='checkbox' value=" + choices[1] + "> " + choices[1] + "</label>"),
-        $("<div class='checkbox'><label><input type='checkbox' value=" + choices[2] + "> " + choices[2] + "</label>"),
-        $("<div class='checkbox'><label><input type='checkbox' value=" + choices[3] + "> " + choices[3] + "</label>"),
-        $("<div class='checkbox'><label><input type='checkbox' value=" + choices[4] + "> " + choices[4] + "</label>"),
-        $("<button type='button' class='btn btn-primary' id='button'> " + "Next Question" + "</button>")
-    ))
+            $("<div class='checkbox'><label><input type='checkbox' value=" + choices[1] + "> " + choices[1] + "</label>"),
+            $("<div class='checkbox'><label><input type='checkbox' value=" + choices[2] + "> " + choices[2] + "</label>"),
+            $("<div class='checkbox'><label><input type='checkbox' value=" + choices[3] + "> " + choices[3] + "</label>"),
+            $("<div class='checkbox'><label><input type='checkbox' value=" + choices[4] + "> " + choices[4] + "</label>"),
+            $("<button type='button' class='btn btn-primary' id='button'> " + "Next Question" + "</button>"),
+        ));
 
     //Button Click
 
     $("#button").on("click", function() {
 
         $.each($("input[value]:checked"), function() {
-            answersArr.push($(this).val());
+            answers.push($(this).val());
 
             nextQuestion();
-            console.log(answersArr)
+            console.log(answers);
         })
     })
     
@@ -152,6 +107,48 @@ $("#start").click(function() {
 //End Quiz
 
 function quizEnd() {
+    console.log("quizEnd() called");
     $("#questions").html("Please wait while we work our magic!");
     $("#choices").remove();
+    score();
+    sort(cities, "score");
+
+    // testing
+    for (i=0; i < cities.length; i++) {
+        console.log(cities[i]);
+    }
+}
+
+
+
+// compares users answers to city tags and scores city by num matching tags
+function score(){
+    for (var i=0; i < answers.length; i++){
+        for (var x=0; x < cities.length; x++){
+            if (cities[x].tags.indexOf(answers[i])){
+                cities[x].score++;
+            }
+        }
+    }
+}
+
+
+// bubble sort to rank cities by score
+function sort(cities, score) {
+
+    var swapped;
+
+    do {
+        swapped = false;
+        for (var i=0; i < cities.length-1; i++){
+            if (cities[i][score] < cities[i + 1][score]) {
+                var temp = cities[i];
+                cities[i] = cities[i + 1];
+                cities[i + 1] = temp;
+                swapped = true;
+            }
+        }
+    }
+
+    while (swapped);
 }
