@@ -1,6 +1,4 @@
 //Global Variables
-
-
 var currentQuestion = 0;
 var questions = $("#questions");
 var answers = [];
@@ -40,7 +38,6 @@ function sort(cities, score) {
 
 
 //Questions Array
-
 var quiz = [
 
     {
@@ -83,15 +80,14 @@ var quiz = [
 
 
 //Load Question
-
 function loadQuestion() {
     var question = quiz[currentQuestion].question;
     $("#questions").html(question);
     loadChoices();
 }
 
-//Load Choices
 
+//Load Choices
 function loadChoices(choices) {
     var choices = quiz[currentQuestion].choices;
     
@@ -121,7 +117,6 @@ function loadChoices(choices) {
 };
 
 //Next Question
-
 function nextQuestion() {
     var quizOver = (quiz.length - 1)  === currentQuestion;
     if (quizOver) {
@@ -133,16 +128,16 @@ function nextQuestion() {
     }
 }
 
-//Start Quiz
 
+//Start Quiz
 $("#start").click(function() {
     $("#start").remove();
     $(".intro").remove();
     loadQuestion();
 });
 
-//End Quiz
 
+//End Quiz
 function quizEnd() {
     console.log("quizEnd() called");
 
@@ -172,12 +167,6 @@ function score(){
     }
 }
 
-
-
-    for (i=0; i < cities.length; i++) {
-        console.log(cities[i]);
-    }
-}
 
 
 // bubble sort to rank cities by score
