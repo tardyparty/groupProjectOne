@@ -1,4 +1,48 @@
 
+<<<<<<< HEAD
+// compares users answers to city tags and scores city by num matching tags
+function score(){
+    for (var i=0; i < answers.length; i++){
+        for (var x=0; x < cities.length; x++){
+            if (cities[x].tags.indexOf(answers[i])){
+                cities[x].score++;
+            }
+        }
+    }
+}
+
+
+// bubble sort to rank cities by score
+function sort(cities, score) {
+
+    var swapped;
+
+    do {
+        swapped = false;
+        for (var i=0; i < cities.length-1; i++){
+            if (cities[i][score] < cities[i + 1][score]) {
+                var temp = cities[i];
+                cities[i] = cities[i + 1];
+                cities[i + 1] = temp;
+                swapped = true;
+            }
+        }
+    }
+
+    while (swapped);
+}
+
+
+
+// testing
+score();
+sort(cities, "score");
+
+for (i=0; i < cities.length; i++) {
+    console.log(cities[i]);
+}
+=======
+>>>>>>> cc0c660ce9ee068290171dd6f3bbc596401d0033
 //Questions Array
 
 var quiz = [
@@ -44,7 +88,11 @@ var quiz = [
 
 var currentQuestion = 0;
 var questions = $("#questions");
+<<<<<<< HEAD
+var answers = []
+=======
 var answers = [];
+>>>>>>> cc0c660ce9ee068290171dd6f3bbc596401d0033
 
 //Load Question
 
@@ -107,6 +155,9 @@ $("#start").click(function() {
 //End Quiz
 
 function quizEnd() {
+<<<<<<< HEAD
+   $("#questions").html(score);
+=======
     $("#questions").html("Please wait while we work our magic!");
     $("#choices").remove();
     score();
@@ -128,6 +179,7 @@ function score(){
             }
         }
     }
+>>>>>>> cc0c660ce9ee068290171dd6f3bbc596401d0033
 }
 
 
