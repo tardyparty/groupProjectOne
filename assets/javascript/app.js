@@ -1,46 +1,10 @@
 //Global Variables
-
-
 var currentQuestion = 0;
 var questions = $("#questions");
 var answers = [];
 
 
-// compares users answers to city tags and scores city by num matching tags
-function score(){
-    for (var i=0; i < answers.length; i++){
-        for (var x=0; x < cities.length; x++){
-            if (cities[x].tags.indexOf(answers[i])){
-                cities[x].score++;
-            }
-        }
-    }
-}
-
-
-// bubble sort to rank cities by score
-function sort(cities, score) {
-
-    var swapped;
-
-    do {
-        swapped = false;
-        for (var i=0; i < cities.length-1; i++){
-            if (cities[i][score] < cities[i + 1][score]) {
-                var temp = cities[i];
-                cities[i] = cities[i + 1];
-                cities[i + 1] = temp;
-                swapped = true;
-            }
-        }
-    }
-
-    while (swapped);
-}
-
-
-//Questions Array
-
+// Questions Array
 var quiz = [
 
     {
@@ -78,23 +42,21 @@ var quiz = [
         question: "What types of weather do you prefer?",
         choices: ["Sunny", "Rainy", "Winter Wonderland", "Crisp and Cool", "Hot"]
     }
-]
+];
 
 
-
-//Load Question
-
+// Load Question
 function loadQuestion() {
     var question = quiz[currentQuestion].question;
     $("#questions").html(question);
     loadChoices();
 }
 
-//Load Choices
 
+// Load Choices
 function loadChoices(choices) {
+
     var choices = quiz[currentQuestion].choices;
-    
     
     $("#choices").html(
         $("<div class='checkbox' id='choice1'><label><input type='checkbox' value=" + choices[0] + "> " + choices[0] + "</label>").append(
@@ -120,8 +82,8 @@ function loadChoices(choices) {
     
 };
 
-//Next Question
 
+// Next Question
 function nextQuestion() {
     var quizOver = (quiz.length - 1)  === currentQuestion;
     if (quizOver) {
@@ -133,16 +95,16 @@ function nextQuestion() {
     }
 }
 
-//Start Quiz
 
+// Start Quiz
 $("#start").click(function() {
     $("#start").remove();
     $(".intro").remove();
     loadQuestion();
 });
 
-//End Quiz
 
+// End Quiz
 function quizEnd() {
     console.log("quizEnd() called");
 
@@ -160,7 +122,6 @@ function quizEnd() {
 }
 
 
-
 // compares users answers to city tags and scores city by num matching tags
 function score(){
     for (var i=0; i < answers.length; i++){
@@ -171,13 +132,6 @@ function score(){
         }
     }
 }
-
-
-
-    for (i=0; i < cities.length; i++) {
-        console.log(cities[i]);
-    }
-
 
 
 // bubble sort to rank cities by score
