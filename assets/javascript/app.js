@@ -45,6 +45,31 @@ var quiz = [
 ];
 
 
+// build tags html
+function buildTags() {
+    var id = 0;
+    for (var i=0; i < quiz.length; i++){
+        
+        $("#tags").append(`
+        <div class="qDiv col-lg-12 col-xs-12">
+            <h4>${quiz[i].question}</h4>
+            <div id=${"quiz" + id}>
+            </div>
+        </div>
+        `);
+        for (var j=0; j < quiz[i].choices.length; j++){
+            $(`${"#quiz" + id}`).append(`
+            <button class="tagBtn" value="${quiz[i].choices[j]}">${quiz[i].choices[j]}</button>
+            `);
+        }
+        id++;
+    }
+}
+
+
+buildTags();
+
+
 // Load Question
 function loadQuestion() {
     var question = quiz[currentQuestion].question;
