@@ -39,15 +39,7 @@ $.ajax(settings).done(function (response) {
 // requestData.departdate1 = dates;
 
 // edit this object according to user inputs
-var requestData = {
-    origin1: origin,
-    destination1: cities[0].code,
-    departdate1: "2019-12-01",
-    cabin: "e",
-    currency: "USD",
-    adults: "1",
-    bags: "0"
-    };
+
 
 
 
@@ -60,20 +52,32 @@ var requestData = {
 $("#results").on("click", function(e){
     e.preventDefault();
 
-    $.ajax({
-        type: "GET",
-        url: "https://apidojo-kayak-v1.p.rapidapi.com/flights/create-session",
-        crossDomain:true,
-        headers: { "x-rapidapi-host": "apidojo-kayak-v1.p.rapidapi.com",
-                    "x-rapidapi-key": "3d2fa81c65msh322e2d31fe3aebdp19814bjsnceae2e75aeae" },
-        data: requestData,
-        success: function (response) {
-            console.log(response);
-            console.log("price" + response.cheapestPriceTotal);
-            console.log("airline" + response.airlines[0])
-            // ******* code goes here! ********
-            }
-        });
+    for (var i=0; i < cities.length; i++){
+        var requestData = {
+            origin1: origin,
+            destination1: cities[i].code,
+            departdate1: "2019-12-01",
+            cabin: "e",
+            currency: "USD",
+            adults: "1",
+            bags: "0"
+            };
+
+        $.ajax({
+            type: "GET",
+            url: "https://apidojo-kayak-v1.p.rapidapi.com/flights/create-session",
+            crossDomain:true,
+            headers: { "x-rapidapi-host": "apidojo-kayak-v1.p.rapidapi.com",
+                        "x-rapidapi-key": "3d2fa81c65msh322e2d31fe3aebdp19814bjsnceae2e75aeae" },
+            data: requestData,
+            success: function (response) {
+                console.log("price: " + response.cheapestPriceTotal);
+                console.log(response.airportSummary);
+                // ******* code goes here! ********
+                }
+            });
+    }
+    
 })
 
         

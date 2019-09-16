@@ -44,7 +44,7 @@ var quiz = [
 
 
 // build tags html
-function buildTags() {
+$(document).ready(function buildTags() {
     var id = 0;
     for (var i=0; i < quiz.length; i++){
         
@@ -62,10 +62,7 @@ function buildTags() {
         }
         id++;
     }
-}
-
-
-buildTags();
+});
 
 
 // add user tags to answers array 
@@ -96,96 +93,23 @@ $("#results").on("click", function(e){
     score();
     sort(cities, score);
     console.log(cities);
-})
-
-
-// // Load Question
-// function loadQuestion() {
-//     var question = quiz[currentQuestion].question;
-//     $("#questions").html(question);
-//     loadChoices();
-// }
-
-
-// // Load Choices
-// function loadChoices(choices) {
-
-//     var choices = quiz[currentQuestion].choices;
-    
-//     $("#choices").html(
-//         $("<div class='checkbox' id='choice1'><label><input type='checkbox' value=" + choices[0] + "> " + choices[0] + "</label>").append(
-//             $("<div class='checkbox'><label><input type='checkbox' value=" + choices[1] + "> " + choices[1] + "</label>"),
-//             $("<div class='checkbox'><label><input type='checkbox' value=" + choices[2] + "> " + choices[2] + "</label>"),
-//             $("<div class='checkbox'><label><input type='checkbox' value=" + choices[3] + "> " + choices[3] + "</label>"),
-//             $("<div class='checkbox'><label><input type='checkbox' value=" + choices[4] + "> " + choices[4] + "</label>"),
-//             $("<button type='button' class='btn btn-primary' id='button'> " + "Next Question" + "</button>"),
-//         ));
-
-//     //Button Click
-
-//     $("#button").on("click", function() {
-
-//         $.each($("input[value]:checked"), function() {
-//             answers.push($(this).val());
-
-//             nextQuestion();
-//             console.log(answers);
-
-//         })
-//     })
-    
-// };
-
-
-// // Next Question
-// function nextQuestion() {
-//     var quizOver = (quiz.length - 1)  === currentQuestion;
-//     if (quizOver) {
-//         quizEnd();
-//     } else {
-//         currentQuestion++;
-//         loadQuestion();
-
-//     }
-// }
-
-
-// // Start Quiz
-// $("#start").click(function() {
-//     $("#start").remove();
-//     $(".intro").remove();
-//     loadQuestion();
-// });
-
-
-// // End Quiz
-// function quizEnd() {
-//     console.log("quizEnd() called");
-
-// //    $("#questions").html(score);
-
-//     $("#questions").html("Please wait while we work our magic!");
-//     $("#choices").remove();
-//     score();
-//     sort(cities, "score");
-
-//     // testing
-//     for (i=0; i < cities.length; i++) {
-//         console.log(cities[i]);
-//     }
-// }
+});
 
 
 // compares users answers to city tags and scores city by num matching tags
 function score(){
     for (var i=0; i < answers.length; i++){
+        // for every tag selected by user...
         for (var x=0; x < cities.length; x++){
-            if (cities[x].tags.indexOf(answers[i])){
-                cities[x].score++;
+            // for every city object...
+            for (var j=0; j < cities[x].length; j++){
+                // for every tag in city object...
+                if(answers[i] === cities[x].tags[j]){
+                    cities[x].score++;
+                }
             }
         }
     }
-    console.log(cities);
 }
 
 
