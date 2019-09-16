@@ -1,28 +1,38 @@
 body {
-    /* color: navy; */
-    /* background-color: #528ecc; */
+    min-height: 105vh;
 }
+
 
 #tags {
     color: rgb(33, 75, 107);
 }
+
 
 .qDiv {
     text-align: center;
     margin-bottom: 25px;
 }
 
-.tagBtn {
+
+h5 {
+    color: white;
+}
+
+
+.tagBtn, #results {
     margin: 2px;
 	-moz-box-shadow:inset 0px 1px 0px 0px #dcecfb;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #dcecfb;
 	box-shadow:inset 0px 1px 0px 0px #dcecfb;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bddbfa), color-stop(1, #80b5ea));
+	/* background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bddbfa), color-stop(1, #80b5ea));
 	background:-moz-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
 	background:-webkit-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
 	background:-o-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
 	background:-ms-linear-gradient(top, #bddbfa 5%, #80b5ea 100%);
-	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+    background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%); */
+    background: #000064;  /* old browsers fallback color*/
+    background: -webkit-linear-gradient(to right, #1BADD8, #00003E);  
+    background: linear-gradient(to right, #1BADD8, #00003E);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bddbfa', endColorstr='#80b5ea',GradientType=0);
 	background-color:#bddbfa;
 	-moz-border-radius:6px;
@@ -60,33 +70,21 @@ body {
 
 
 .jumbotron {
- 
     padding: 2rem 1rem;
-   
     margin-bottom: 2rem;
-   
     border-radius: 0.3rem;
- 
-  background: #000064;  /* old browsers fallback color*/
-   
-  background: -webkit-linear-gradient(to right, #1BADD8, #00003E); 
-   
-  background: linear-gradient(to right, #1BADD8, #00003E);
-   
-  }
-   
-  .hd1{
-   
-      color:#fff;
-   
-  }
-   
-  h1 {
-      color:#fff;
+    background: #000064;  /* old browsers fallback color*/
+    background: -webkit-linear-gradient(to right, #1BADD8, #00003E); 
+    background: linear-gradient(to right, #1BADD8, #00003E);
   }
 
 
-img {
+h1 {
+    color:#fff;
+}
+
+
+/* img {
     width: 100%;
     height: 300px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -184,7 +182,7 @@ img {
     padding: 10px;
     text-align: center;
 
-}
+} */
 
 
 

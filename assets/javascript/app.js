@@ -1,6 +1,4 @@
 //Global Variables
-var currentQuestion = 0;
-var questions = $("#questions");
 var answers = [];
 
 
@@ -70,6 +68,8 @@ function buildTags() {
 buildTags();
 
 
+// add user tags to answers array 
+// ***** add ability to remove tag if it already exists (modal asking are you sure??)*******
 $(document).on("click", ".tagBtn", function(e){
     // dont reload
     e.preventDefault();
@@ -87,6 +87,16 @@ $(document).on("click", ".tagBtn", function(e){
     answers.push(addTag);
     console.log(answers);
 });
+
+
+$("#results").on("click", function(e){
+    // dont reload
+    e.preventDefault();
+
+    score();
+    sort(cities, score);
+    console.log(cities);
+})
 
 
 // // Load Question
@@ -175,6 +185,7 @@ function score(){
             }
         }
     }
+    console.log(cities);
 }
 
 
