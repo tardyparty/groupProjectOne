@@ -72,6 +72,7 @@ $(document).on("click", ".tagBtn", function(e){
     e.preventDefault();
 
     var addTag = this.value.toLowerCase();
+    this.disabled = true;
 
     // check if its already logged
     // if(answers.indexOf(addTag)){
