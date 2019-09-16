@@ -87,13 +87,8 @@ $(document).on("click", ".tagBtn", function(e){
 });
 
 
-$("#results").on("click", function(e){
-    // dont reload
-    e.preventDefault();
-
-    score();
-    sort(cities, score);
-    console.log(cities);
+$("#results").on("click", function(){
+    results();
 });
 
 
