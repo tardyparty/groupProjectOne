@@ -43,6 +43,8 @@ var quiz = [
 ];
 
 
+
+
 // build tags html
 $(document).ready(function buildTags() {
     var id = 0;
@@ -74,7 +76,7 @@ $(document).on("click", ".tagBtn", function(e){
     var addTag = this.value.toLowerCase();
     this.disabled = true;
 
-    // check if its already logged
+    // check if its already logged ****doesnt work as is****
     // if(answers.indexOf(addTag)){
     //     answers.filter(e => e !== addTag)
     // }
@@ -88,7 +90,7 @@ $(document).on("click", ".tagBtn", function(e){
 
 
 $("#results").on("click", function(){
-    results();
+    displayResults();
 });
 
 
@@ -98,11 +100,9 @@ function score(){
         // for every tag selected by user...
         for (var x=0; x < cities.length; x++){
             // for every city object...
-            for (var j=0; j < cities[x].length; j++){
-                // for every tag in city object...
-                if(answers[i] === cities[x].tags[j]){
-                    cities[x].score++;
-                }
+            if (cities[x].tags.indexOf(answers[i])){
+                cities[x].score++;
+                
             }
         }
     }
