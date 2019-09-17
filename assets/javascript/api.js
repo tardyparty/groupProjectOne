@@ -1,7 +1,7 @@
 // home city ajax
 // api builder for home airport code search
-var origin = $("#homeInput").val().trim();
-var dates = $("#dates").val().trim();
+var origin = ""
+var dates = ""
 // var to store airport code string of users departure city
 var homeCode = "";
 
@@ -12,8 +12,6 @@ var more = 5;
 var cityName = '';
 
 var x = 0;
-
-
 
 $("#showMore").on("click", function(){
     more += 5;
@@ -39,7 +37,7 @@ function displayResults(){
 
 // acccepts api form inputs
 $("#apiBtn").on("click", function(e){
-    
+   
     console.log(origin, dates);
 
 
@@ -90,6 +88,9 @@ function buildTrip() {
             console.log(cityName);
             console.log("price: " + response.cheapestPriceTotal);
             console.log(response.airportSummary);
+
+            var baseURL = response.baseUrl;
+            var shareURL = response.shareURL;
             
             // ******* code goes here! ********
             $("#resultsPage").append(`
@@ -100,6 +101,7 @@ function buildTrip() {
                     <div class="card-body">
                         <p>Cheapest Flight: $${response.cheapestPriceTotal}</p>
                         <p> Things to do in ${cityName}</p>
+                        <button id="shareBtn"><a href="${baseURL + shareURL}" target="_blank" style="color:white">Book Now</a></button>
                     </div>
                 </div>
             `)
