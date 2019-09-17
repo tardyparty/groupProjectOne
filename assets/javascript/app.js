@@ -127,4 +127,3 @@ function sort(cities, score) {
     }
     while (swapped);
 }
-

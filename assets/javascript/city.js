@@ -4,12 +4,14 @@ var cities = [
         code: "JFK",
         tags: ["urban", "history", "fancy ass bars"],
         score: 0,
+        url: "https://www.timeout.com/newyork"
     },
     {
         name: "Melbourne",
         code: "MELa",
         tags: ["beach", ""],
         score: 0,
+        url: "https://www.timeout.com/melbourne"
     },
     {
         name: "Chicago",

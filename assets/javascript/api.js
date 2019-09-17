@@ -28,7 +28,7 @@ function results(){
 function displayResults(){
     for (var i=x; i < more; i++){
         cityCode = cities[i].code;
-        cityName = cities[1].name;
+        cityName = cities[x].name;
         buildTrip();
         x++;
     }
@@ -102,9 +102,11 @@ function buildTrip() {
                         <p>Cheapest Flight: $${response.cheapestPriceTotal}</p>
                         <p> Things to do in ${cityName}</p>
                         <button id="shareBtn"><a href="${baseURL + shareURL}" target="_blank" style="color:white">Book Now</a></button>
+                        <button id="shareBtn"><a href="${'https://www.timeout.com/things-to-do/best-cities-in-the-world'}" target="_blank" style="color:white">Things to do</a></button>
                     </div>
                 </div>
             `)
+            console.log("Cities: " + cities[x])
             }
         });
 }
